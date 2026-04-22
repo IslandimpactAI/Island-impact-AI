@@ -345,7 +345,7 @@ function WealthScreen() {
 
   const renderTopicContent = () => {
     if (!island) return null;
-    const data = island[activeTopic];
+    const data = (island as any)[activeTopic];
     if (!data) return <div style={{ color: "#64748b", fontSize: 13, padding: "20px 0" }}>Coming soon.</div>;
     if (activeTopic === "health" || activeTopic === "retirement") {
       return (
