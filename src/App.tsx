@@ -361,7 +361,7 @@ function WealthScreen() {
       return (
         <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
           {data.map((item, i) => (
-            <div key={i} style={{ background: "rgba(255,255,255,0.04)", borderRadius: 14, padding: 16, border: "1px solid rgba(255,255,255,0.08)" }}>
+            <div key={String(i)} style={{ background: "rgba(255,255,255,0.04)", borderRadius: 14, padding: 16, border: "1px solid rgba(255,255,255,0.08)" }}>
               <div style={{ color: "#fff", fontWeight: "bold", fontSize: 14, marginBottom: 6 }}>{item.name}</div>
               <div style={{ color: "#cbd5e1", fontSize: 13, lineHeight: 1.6, marginBottom: 6 }}>{item.detail}</div>
               {item.rate && <div style={{ display: "inline-block", padding: "3px 10px", borderRadius: 50, background: "rgba(74,222,128,0.15)", color: "#4ade80", fontSize: 11, fontFamily: "monospace", marginBottom: 4 }}>📈 {item.rate}</div>}
@@ -393,7 +393,7 @@ function WealthScreen() {
         ) : (
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             {financeLessons.map((lesson, i) => (
-              <div key={i} onClick={() => setSelectedLesson(i)} style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(251,191,36,0.15)", borderRadius: 14, padding: 16, cursor: "pointer", display: "flex", alignItems: "center", gap: 14 }}>
+              <div key={String(i)} onClick={() => setSelectedLesson(i)} style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(251,191,36,0.15)", borderRadius: 14, padding: 16, cursor: "pointer", display: "flex", alignItems: "center", gap: 14 }}>
                 <div style={{ fontSize: 28 }}>{lesson.emoji}</div>
                 <div style={{ flex: 1 }}>
                   <div style={{ color: "#fff", fontWeight: "bold", fontSize: 14 }}>{lesson.title}</div>
@@ -603,7 +603,7 @@ function IslandpactPayScreen() {
         <div>
           <div style={{ color: "#67e8f9", fontSize: 13, fontFamily: "monospace", marginBottom: 16 }}>RECENT ACTIVITY</div>
           {[{ emoji: "🌊", label: "Wave sent to Mum", sub: "Jamaica · 2 hours ago", amt: "-$50.00", color: "#f87171" }, { emoji: "📥", label: "Received from Stacy", sub: "Grenada · Yesterday", amt: "+$25.00", color: "#4ade80" }, { emoji: "🎉", label: "Contributed to Back to School Drive", sub: "Trinidad · 2 days ago", amt: "-$20.00", color: "#f87171" }, { emoji: "📥", label: "Received from Devon", sub: "Trinidad · 3 days ago", amt: "+$100.00", color: "#4ade80" }, { emoji: "🌊", label: "Wave sent to Aunty Pat", sub: "Barbados · 1 week ago", amt: "-$75.00", color: "#f87171" }].map((item, i) => (
-            <div key={i} style={{ display: "flex", alignItems: "center", gap: 14, padding: "14px 0", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+            <div key={String(i)} style={{ display: "flex", alignItems: "center", gap: 14, padding: "14px 0", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
               <div style={{ fontSize: 22, width: 36, textAlign: "center" }}>{item.emoji}</div>
               <div style={{ flex: 1 }}><div style={{ color: "#e2e8f0", fontSize: 14 }}>{item.label}</div><div style={{ color: "#64748b", fontSize: 12, marginTop: 2 }}>{item.sub}</div></div>
               <div style={{ color: item.color, fontWeight: "bold", fontSize: 15 }}>{item.amt}</div>
@@ -685,7 +685,7 @@ function ResourceScreen() {
       {chatOpen && (<div style={{ position: "fixed", bottom: 154, right: 24, width: "min(340px,calc(100vw - 48px))", height: 420, borderRadius: 20, background: "#0d1f17", border: "1px solid rgba(74,222,128,0.3)", boxShadow: "0 20px 60px rgba(0,0,0,0.5)", display: "flex", flexDirection: "column", zIndex: 100, overflow: "hidden" }}>
         <div style={{ padding: "12px 16px", borderBottom: "1px solid rgba(74,222,128,0.2)", background: "rgba(74,222,128,0.08)" }}><div style={{ fontWeight: "bold", color: "#4ade80", fontSize: 13 }}>🌴 Island Impact AI Guide</div><div style={{ fontSize: 11, color: "#86efac", opacity: 0.7 }}>Powered by AI · Here to help</div></div>
         <div style={{ flex: 1, overflowY: "auto", padding: 12, display: "flex", flexDirection: "column", gap: 8 }}>
-          {chatMessages.map((msg, i) => (<div key={i} style={{ display: "flex", justifyContent: msg.from === "user" ? "flex-end" : "flex-start" }}><div style={{ maxWidth: "85%", padding: "9px 13px", borderRadius: msg.from === "user" ? "18px 18px 4px 18px" : "18px 18px 18px 4px", background: msg.from === "user" ? "#4ade80" : "rgba(255,255,255,0.07)", color: msg.from === "user" ? "#0a1628" : "#e2e8f0", fontSize: 13, lineHeight: 1.6 }}>{msg.text}</div></div>))}
+          {chatMessages.map((msg, i) => (<div key={String(i)} style={{ display: "flex", justifyContent: msg.from === "user" ? "flex-end" : "flex-start" }}><div style={{ maxWidth: "85%", padding: "9px 13px", borderRadius: msg.from === "user" ? "18px 18px 4px 18px" : "18px 18px 18px 4px", background: msg.from === "user" ? "#4ade80" : "rgba(255,255,255,0.07)", color: msg.from === "user" ? "#0a1628" : "#e2e8f0", fontSize: 13, lineHeight: 1.6 }}>{msg.text}</div></div>))}
           {loading && <div style={{ display: "flex" }}><div style={{ padding: "9px 13px", borderRadius: "18px 18px 18px 4px", background: "rgba(255,255,255,0.07)", color: "#4ade80", fontSize: 13 }}>typing...</div></div>}
         </div>
         <div style={{ padding: 10, borderTop: "1px solid rgba(74,222,128,0.15)", display: "flex", gap: 8 }}>
