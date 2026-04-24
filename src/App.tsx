@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+
 // ── ALL CARIBBEAN ISLANDS WEALTH DATA ────────────────────────────────────────
 const wealthData = [
   {
