@@ -393,7 +393,7 @@ function WealthScreen() {
           </div>
         ) : (
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-            {financeLessons.map((lesson, i) => (
+            {financeLessons.map((lesson, i as any) => (
               <div key={String(i)} onClick={() => setSelectedLesson(i as any)} style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(251,191,36,0.15)", borderRadius: 14, padding: 16, cursor: "pointer", display: "flex", alignItems: "center", gap: 14 }}>
                 <div style={{ fontSize: 28 }}>{lesson.emoji}</div>
                 <div style={{ flex: 1 }}>
