@@ -332,10 +332,10 @@ const inputStyle = { width: "100%", padding: "11px 16px", borderRadius: 10, back
 
 // ── WEALTH SCREEN ─────────────────────────────────────────────────────────────
 function WealthScreen() {
-  const [selectedId, setSelectedId] = useState(null);
+  const [selectedId, setSelectedId] = useState<any>(null);
   const [activeTopic, setActiveTopic] = useState("health");
   const [view, setView] = useState("islands");
-  const [selectedLesson, setSelectedLesson] = useState(null);
+  const [selectedLesson, setSelectedLesson] = useState<any>(null);
   const [search, setSearch] = useState("");
 
   const island = wealthData.find(i => i.id === selectedId);
@@ -393,7 +393,7 @@ function WealthScreen() {
         ) : (
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             {financeLessons.map((lesson, i) => (
-              <div key={String(i)} onClick={() => setSelectedLesson(i)} style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(251,191,36,0.15)", borderRadius: 14, padding: 16, cursor: "pointer", display: "flex", alignItems: "center", gap: 14 }}>
+              <div key={String(i)} onClick={() => setSelectedLesson(i as any)} style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(251,191,36,0.15)", borderRadius: 14, padding: 16, cursor: "pointer", display: "flex", alignItems: "center", gap: 14 }}>
                 <div style={{ fontSize: 28 }}>{lesson.emoji}</div>
                 <div style={{ flex: 1 }}>
                   <div style={{ color: "#fff", fontWeight: "bold", fontSize: 14 }}>{lesson.title}</div>
@@ -500,9 +500,9 @@ function WealthScreen() {
 // ── ISLANDPACT PAY ────────────────────────────────────────────────────────────
 function IslandpactPayScreen() {
   const [tab, setTab] = useState("parties");
-  const [sendAmt, setSendAmt] = useState(""); const [sendTo, setSendTo] = useState(null); const [sendDone, setSendDone] = useState(false);
+  const [sendAmt, setSendAmt] = useState(""); const [sendTo, setSendTo] = useState<any>(null); const [sendDone, setSendDone] = useState(false);
   const [createOpen, setCreateOpen] = useState(false); const [partyName, setPartyName] = useState(""); const [partyGoal, setPartyGoal] = useState(""); const [partyDesc, setPartyDesc] = useState("");
-  const [parties, setParties] = useState(mockParties); const [contributeId, setContributeId] = useState(null); const [contributeAmt, setContributeAmt] = useState("");
+  const [parties, setParties] = useState(mockParties); const [contributeId, setContributeId] = useState<any>(null); const [contributeAmt, setContributeAmt] = useState("");
   const handleSend = () => { if (sendAmt && sendTo) setSendDone(true); };
   const handleCreate = () => { if (!partyName || !partyGoal) return; setParties([{ id: parties.length + 1, name: partyName, creator: "You", island: "All Caribbean 🌴", goal: parseFloat(partyGoal), raised: 0, contributors: 0, emoji: "🎉", daysLeft: 30, description: partyDesc || "Help us reach our goal!" }, ...parties]); setCreateOpen(false); setPartyName(""); setPartyGoal(""); setPartyDesc(""); };
   const handleContribute = (id) => { if (!contributeAmt) return; setParties(prev => prev.map(p => p.id === id ? { ...p, raised: Math.min(p.raised + parseFloat(contributeAmt), p.goal), contributors: p.contributors + 1 } : p)); setContributeId(null); setContributeAmt(""); };
@@ -620,7 +620,7 @@ function ResourceScreen() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedIsland, setSelectedIsland] = useState("All Islands");
   const [search, setSearch] = useState("");
-  const [expanded, setExpanded] = useState(null);
+  const [expanded, setExpanded] = useState<any>(null);
   const [chatOpen, setChatOpen] = useState(false);
   const [chatInput, setChatInput] = useState("");
   const [chatMessages, setChatMessages] = useState([{ from: "ai", text: "Hello! I'm your Island Impact AI Guide 🌴 Tell me what you need — housing, health, business support, education, emergency aid, or financial guidance — and I'll help you find it!" }]);
@@ -816,7 +816,7 @@ function AuthScreen({ onAuth }) {
 // ── MAIN APP ──────────────────────────────────────────────────────────────────
 export default function App() {
   const [screen, setScreen] = useState("resources");
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<any>(null);
   const navItems = [["resources", "🏝", "Resources", "#4ade80"], ["pay", "🌊", "Islandpact Pay", "#22d3ee"], ["wealth", "💰", "Finance", "#fbbf24"]];
 
   if (!user) return <AuthScreen onAuth={setUser} />;
