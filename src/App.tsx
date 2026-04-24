@@ -383,7 +383,7 @@ function WealthScreen() {
         </div>
         {selectedLesson !== null ? (
           <div>
-            <button onClick={() => setSelectedLesson(null)} style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 50, padding: "6px 14px", color: "#94a3b8", cursor: "pointer", fontSize: 13, marginBottom: 16 }}>← All Lessons</button>
+            <button onClick={() => setSelectedLesson(null as any)} style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 50, padding: "6px 14px", color: "#94a3b8", cursor: "pointer", fontSize: 13, marginBottom: 16 }}>← All Lessons</button>
             <div style={{ background: "rgba(251,191,36,0.06)", border: "1px solid rgba(251,191,36,0.2)", borderRadius: 16, padding: 24 }}>
               <div style={{ fontSize: 40, marginBottom: 12 }}>{financeLessons[selectedLesson].emoji}</div>
               <div style={{ color: "#fbbf24", fontWeight: "bold", fontSize: 18, marginBottom: 16 }}>{financeLessons[selectedLesson].title}</div>
